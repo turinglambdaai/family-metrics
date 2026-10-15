@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Family Metrics</title>
+<style>
+  :root{
+    --accent:#c15f3c; --accent-hover:#a84e2f; --bg:#faf6f2; --panel:#ffffff;
+    --ink:#2b2118; --muted:#8a7a6d; --line:#e8ddd2;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#171310; --panel:#201a15; --ink:#ece4da; --muted:#a08e7d; --line:#35291f; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+       font:15px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}
+  main{max-width:1080px;margin:0 auto;padding:32px 20px 64px}
+  h1{font-size:26px;margin:0 0 4px}
+  h1 .dot{color:var(--accent)}
+  .sub{color:var(--muted);margin:0 0 28px;font-size:14px}
+  h2{font-size:17px;margin:36px 0 12px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+  .card .name{font-weight:600}
+  .card .total{font-size:24px;font-weight:700;color:var(--accent)}
+  .card .delta{font-size:12px;color:var(--muted)}
+  .card svg{display:block;margin-top:6px}
+  table{border-collapse:collapse;width:100%;background:var(--panel);
+        border:1px solid var(--line);border-radius:10px;overflow:hidden;font-size:14px}
+  th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--line)}
+  th{color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+  tr:last-child td{border-bottom:none}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+  .muted{color:var(--muted)}
+  .legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px;color:var(--muted);margin:8px 0 0}
+  .legend b{color:var(--ink);font-weight:600}
+</style>
+</head>
+<body>
+<main>
+  <h1>Family Metrics<span class="dot">.</span></h1>
+  <p class="sub">turinglambdaai 产品家族下载量快照 · 每天 23:50 UTC 采集 · <span id="span-meta"></span></p>
+
+  <h2>家族下载总量（按日）</h2>
+  <div id="family-chart"></div>
+
+  <h2>产品总览</h2>
+  <div class="cards" id="cards"></div>
+
+  <h2>平台构成（最新快照，剔除别名资产）</h2>
+  <table id="platforms"><thead><tr>
+    <th>格式</th><th class="num">下载</th><th class="num">占比</th>
+  </tr></thead><tbody></tbody></table>
+
+  <h2>最近发布</h2>
+  <table id="recent"><thead><tr>
+    <th>产品</th><th>Release</th><th>发布时间</th><th class="num">下载</th>
+  </tr></thead><tbody></tbody></table>
+</main>
+<script>
+const PLATFORMS = [
+  ['dmg','macOS dmg'], ['msi','Windows msi'], ['exe','Windows exe'],
+  ['deb','Linux deb'], ['rpm','Linux rpm'], ['appimage','AppImage'],
+  ['tar.gz','tar.gz'], ['zip','zip'], ['other','其他']
+];
+const SIDECAR = /\.(sha256|sig|asc|sbom|json|txt)$|SHA256SUMS|MANIFEST|NOTICES/i;
+function platformOf(name){
+  const n = name.toLowerCase();
+  for (const [key] of PLATFORMS)
+    if (key !== 'other' && n.endsWith(key)) return key;
+  if (n.includes('.tar.')) return 'tar.gz';
+  return 'other';
+}
+function spark(values, w=160, h=36){
+  if (values.length < 2 || values.every(v => v === values[0])) return '';
+  const min = Math.min(...values), max = Math.max(...values);
+  const pts = values.map((v,i) =>
+    `${(i/(values.length-1)*w).toFixed(1)},${(h-3-(v-min)/(max-min||1)*(h-6)).toFixed(1)}`).join(' ');
+  return `<svg width="${w}" height="${h}"><polyline points="${pts}" fill="none"
+    stroke="var(--accent)" stroke-width="1.8" stroke-linejoin="round"/></svg>`;
+}
+async function load(){
+  const dates = await (await fetch('data/index.json')).json();
+  const recent = dates.slice(-30);
+  const snaps = await Promise.all(recent.map(d =>
+    fetch(`data/${d}.json`).then(r => r.json())));
+  document.getElementById('span-meta').textContent =
+    `序列自 ${dates[0]} · 共 ${dates.length} 天 · 最新 ${dates[dates.length-1]}`;
+
+  const latest = snaps[snaps.length-1], names = Object.keys(latest.repos);
+  const series = names.map(n => snaps.map(s => s.repos[n]?.total ?? null));
+  const familySeries = snaps.map((s,i) =>
+    names.reduce((a,n) => a + (s.repos[n]?.total ?? 0), 0));
+
+  const fc = document.getElementById('family-chart');
+  const first = familySeries.find(v => v > 0) ?? 0;
+  fc.innerHTML = `<div class="legend">累计 <b>${familySeries.at(-1)}</b> · 序列首日 ${familySeries[0]} · 30 天净增 <b>${familySeries.at(-1)-familySeries[0]}</b></div>` +
+    (familySeries.length > 1
+      ? `<div style="background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px">${spark(familySeries, 1030, 90) || '<span class="muted">序列还太短，再攒几天</span>'}</div>`
+      : '');
+
+  document.getElementById('cards').innerHTML = names.map((n,i) => {
+    const s = series[i], last = s.at(-1) ?? 0;
+    const d7 = (s.at(-8) ?? s[0]) ?? 0;
+    return `<div class="card"><div class="name">${n}</div>
+      <div class="total">${last}</div>
+      <div class="delta">7 天 +${last-d7}</div>${spark(s.filter(v => v !== null))}</div>`;
+  }).join('');
+
+  const plat = {};
+  for (const n of names)
+    for (const rel of latest.repos[n].releases)
+      for (const a of rel.assets){
+        if (a.alias) continue;
+        const k = platformOf(a.name);
+        plat[k] = (plat[k] ?? 0) + a.count;
+      }
+  const platTotal = Object.values(plat).reduce((a,b)=>a+b,0) || 1;
+  document.querySelector('#platforms tbody').innerHTML = PLATFORMS
+    .filter(([k]) => plat[k])
+    .map(([k,label]) => `<tr><td>${label}</td><td class="num">${plat[k]}</td>
+      <td class="num">${(plat[k]/platTotal*100).toFixed(1)}%</td></tr>`).join('');
+
+  const rows = [];
+  for (const n of names)
+    for (const rel of latest.repos[n].releases)
+      if (rel.published) rows.push({n, tag: rel.tag, pub: rel.published.slice(0,10), d: rel.downloads});
+  rows.sort((a,b) => b.pub.localeCompare(a.pub));
+  document.querySelector('#recent tbody').innerHTML = rows.slice(0,20)
+    .map(r => `<tr><td>${r.n}</td><td>${r.tag}</td><td class="muted">${r.pub}</td>
+      <td class="num">${r.d}</td></tr>`).join('');
+}
+load().catch(e => {
+  document.querySelector('.sub').textContent = '数据加载失败：' + e;
+});
+</script>
+</body>
+</html>

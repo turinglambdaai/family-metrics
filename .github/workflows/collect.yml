@@ -1,0 +1,30 @@
+name: collect
+on:
+  schedule:
+    # 23:50 UTC — near the end of the UTC day the snapshot is named for.
+    - cron: "50 23 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Snapshot release download counts
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: ./collect.sh
+      - name: Commit the snapshot
+        run: |
+          git config user.name "family-metrics bot"
+          git config user.email "actions@turinglambdaai"
+          git add data/
+          if git diff --cached --quiet; then
+            echo "nothing changed"
+          else
+            git commit -m "snapshot $(date -u +%F)"
+            git push
+          fi
