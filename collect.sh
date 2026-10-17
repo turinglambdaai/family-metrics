@@ -5,7 +5,7 @@
 set -euo pipefail
 
 ORG=turinglambdaai
-REPOS="fulcrum taskly payback threadly movebit syncpilot brainfuel pdfgist podlens autarx benchpilot keyward regexmate keepsake gptp-studio flashpilot moonbeam hackdigest pitboard yinwangdl"
+REPOS="fulcrum taskly payback threadly movebit syncpilot pdfgist podlens autarx benchpilot keyward regexmate keepsake gptp-studio flashpilot moonbeam hackdigest pitboard yinwangdl"
 
 date=$(date -u +%F)
 mkdir -p data
