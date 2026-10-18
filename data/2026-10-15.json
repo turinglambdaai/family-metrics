@@ -4835,215 +4835,6 @@
         }
       ]
     },
-    "pdfgist": {
-      "total": 19,
-      "releases": [
-        {
-          "tag": "v0.2.0",
-          "published": "2026-10-15T00:02:44Z",
-          "prerelease": false,
-          "downloads": 10,
-          "assets": [
-            {
-              "name": "pdfgist-0.2.0-1-linux-aarch64.rpm",
-              "count": 0,
-              "alias": false
-            },
-            {
-              "name": "pdfgist-0.2.0-1-linux-x86_64.rpm",
-              "count": 0,
-              "alias": false
-            },
-            {
-              "name": "pdfgist-0.2.0-linux-aarch64.AppImage",
-              "count": 0,
-              "alias": false
-            },
-            {
-              "name": "pdfgist-0.2.0-linux-amd64.deb",
-              "count": 0,
-              "alias": false
-            },
-            {
-              "name": "pdfgist-0.2.0-linux-arm64.deb",
-              "count": 0,
-              "alias": false
-            },
-            {
-              "name": "pdfgist-0.2.0-linux-arm64.tar.gz",
-              "count": 0,
-              "alias": false
-            },
-            {
-              "name": "pdfgist-0.2.0-linux-arm64.zip",
-              "count": 0,
-              "alias": false
-            },
-            {
-              "name": "pdfgist-0.2.0-linux-x64.tar.gz",
-              "count": 0,
-              "alias": false
-            },
-            {
-              "name": "pdfgist-0.2.0-linux-x64.zip",
-              "count": 0,
-              "alias": false
-            },
-            {
-              "name": "pdfgist-0.2.0-linux-x86_64.AppImage",
-              "count": 0,
-              "alias": false
-            },
-            {
-              "name": "pdfgist-0.2.0-macos-arm64.dmg",
-              "count": 0,
-              "alias": false
-            },
-            {
-              "name": "pdfgist-0.2.0-macos-arm64.zip",
-              "count": 1,
-              "alias": false
-            },
-            {
-              "name": "pdfgist-0.2.0-macos-x64.dmg",
-              "count": 0,
-              "alias": false
-            },
-            {
-              "name": "pdfgist-0.2.0-macos-x64.zip",
-              "count": 0,
-              "alias": false
-            },
-            {
-              "name": "pdfgist-0.2.0-windows-x64.msi",
-              "count": 0,
-              "alias": false
-            },
-            {
-              "name": "pdfgist-0.2.0-windows-x64.wixpdb",
-              "count": 0,
-              "alias": false
-            },
-            {
-              "name": "pdfgist-0.2.0-windows-x64.zip",
-              "count": 0,
-              "alias": false
-            },
-            {
-              "name": "pdfgist-linux-arm64.AppImage",
-              "count": 1,
-              "alias": true
-            },
-            {
-              "name": "pdfgist-linux-arm64.deb",
-              "count": 1,
-              "alias": true
-            },
-            {
-              "name": "pdfgist-linux-arm64.tar.gz",
-              "count": 1,
-              "alias": true
-            },
-            {
-              "name": "pdfgist-linux-x64.AppImage",
-              "count": 1,
-              "alias": true
-            },
-            {
-              "name": "pdfgist-linux-x64.deb",
-              "count": 1,
-              "alias": true
-            },
-            {
-              "name": "pdfgist-linux-x64.tar.gz",
-              "count": 1,
-              "alias": true
-            },
-            {
-              "name": "pdfgist-macos-arm64.dmg",
-              "count": 1,
-              "alias": true
-            },
-            {
-              "name": "pdfgist-macos-x64.dmg",
-              "count": 1,
-              "alias": true
-            },
-            {
-              "name": "pdfgist-windows-x64.msi",
-              "count": 1,
-              "alias": true
-            }
-          ]
-        },
-        {
-          "tag": "v0.1.1",
-          "published": "2026-10-14T02:35:47Z",
-          "prerelease": false,
-          "downloads": 2,
-          "assets": [
-            {
-              "name": "pdfgist-0.1.1-macos-arm64.dmg",
-              "count": 1,
-              "alias": false
-            },
-            {
-              "name": "pdfgist-0.1.1-macos-arm64.zip",
-              "count": 0,
-              "alias": false
-            },
-            {
-              "name": "pdfgist-0.1.1-macos-x64.dmg",
-              "count": 1,
-              "alias": false
-            },
-            {
-              "name": "pdfgist-0.1.1-macos-x64.zip",
-              "count": 0,
-              "alias": false
-            },
-            {
-              "name": "pdfgist-macos-arm64.dmg",
-              "count": 0,
-              "alias": true
-            },
-            {
-              "name": "pdfgist-macos-x64.dmg",
-              "count": 0,
-              "alias": true
-            }
-          ]
-        },
-        {
-          "tag": "v0.1.0",
-          "published": "2026-10-10T04:39:17Z",
-          "prerelease": false,
-          "downloads": 7,
-          "assets": [
-            {
-              "name": "pdfgist-0.1.0-macos-arm64.dmg",
-              "count": 3,
-              "alias": false
-            },
-            {
-              "name": "pdfgist-0.1.0-macos-arm64.zip",
-              "count": 2,
-              "alias": false
-            },
-            {
-              "name": "pdfgist-0.1.0-macos-x64.dmg",
-              "count": 2,
-              "alias": false
-            },
-            {
-              "name": "pdfgist-0.1.0-macos-x64.zip",
-              "count": 0,
-              "alias": false
-            }
-          ]
-        }
-      ]
-    },
     "podlens": {
       "total": 5,
       "releases": [
@@ -7070,9 +6861,218 @@
       "total": 0,
       "releases": []
     },
-    "yinwangdl": {
+    "yinwang-archive": {
       "total": 0,
       "releases": []
+    },
+    "booklight": {
+      "total": 19,
+      "releases": [
+        {
+          "tag": "v0.2.0",
+          "published": "2026-10-15T00:02:44Z",
+          "prerelease": false,
+          "downloads": 10,
+          "assets": [
+            {
+              "name": "pdfgist-0.2.0-1-linux-aarch64.rpm",
+              "count": 0,
+              "alias": false
+            },
+            {
+              "name": "pdfgist-0.2.0-1-linux-x86_64.rpm",
+              "count": 0,
+              "alias": false
+            },
+            {
+              "name": "pdfgist-0.2.0-linux-aarch64.AppImage",
+              "count": 0,
+              "alias": false
+            },
+            {
+              "name": "pdfgist-0.2.0-linux-amd64.deb",
+              "count": 0,
+              "alias": false
+            },
+            {
+              "name": "pdfgist-0.2.0-linux-arm64.deb",
+              "count": 0,
+              "alias": false
+            },
+            {
+              "name": "pdfgist-0.2.0-linux-arm64.tar.gz",
+              "count": 0,
+              "alias": false
+            },
+            {
+              "name": "pdfgist-0.2.0-linux-arm64.zip",
+              "count": 0,
+              "alias": false
+            },
+            {
+              "name": "pdfgist-0.2.0-linux-x64.tar.gz",
+              "count": 0,
+              "alias": false
+            },
+            {
+              "name": "pdfgist-0.2.0-linux-x64.zip",
+              "count": 0,
+              "alias": false
+            },
+            {
+              "name": "pdfgist-0.2.0-linux-x86_64.AppImage",
+              "count": 0,
+              "alias": false
+            },
+            {
+              "name": "pdfgist-0.2.0-macos-arm64.dmg",
+              "count": 0,
+              "alias": false
+            },
+            {
+              "name": "pdfgist-0.2.0-macos-arm64.zip",
+              "count": 1,
+              "alias": false
+            },
+            {
+              "name": "pdfgist-0.2.0-macos-x64.dmg",
+              "count": 0,
+              "alias": false
+            },
+            {
+              "name": "pdfgist-0.2.0-macos-x64.zip",
+              "count": 0,
+              "alias": false
+            },
+            {
+              "name": "pdfgist-0.2.0-windows-x64.msi",
+              "count": 0,
+              "alias": false
+            },
+            {
+              "name": "pdfgist-0.2.0-windows-x64.wixpdb",
+              "count": 0,
+              "alias": false
+            },
+            {
+              "name": "pdfgist-0.2.0-windows-x64.zip",
+              "count": 0,
+              "alias": false
+            },
+            {
+              "name": "pdfgist-linux-arm64.AppImage",
+              "count": 1,
+              "alias": true
+            },
+            {
+              "name": "pdfgist-linux-arm64.deb",
+              "count": 1,
+              "alias": true
+            },
+            {
+              "name": "pdfgist-linux-arm64.tar.gz",
+              "count": 1,
+              "alias": true
+            },
+            {
+              "name": "pdfgist-linux-x64.AppImage",
+              "count": 1,
+              "alias": true
+            },
+            {
+              "name": "pdfgist-linux-x64.deb",
+              "count": 1,
+              "alias": true
+            },
+            {
+              "name": "pdfgist-linux-x64.tar.gz",
+              "count": 1,
+              "alias": true
+            },
+            {
+              "name": "pdfgist-macos-arm64.dmg",
+              "count": 1,
+              "alias": true
+            },
+            {
+              "name": "pdfgist-macos-x64.dmg",
+              "count": 1,
+              "alias": true
+            },
+            {
+              "name": "pdfgist-windows-x64.msi",
+              "count": 1,
+              "alias": true
+            }
+          ]
+        },
+        {
+          "tag": "v0.1.1",
+          "published": "2026-10-14T02:35:47Z",
+          "prerelease": false,
+          "downloads": 2,
+          "assets": [
+            {
+              "name": "pdfgist-0.1.1-macos-arm64.dmg",
+              "count": 1,
+              "alias": false
+            },
+            {
+              "name": "pdfgist-0.1.1-macos-arm64.zip",
+              "count": 0,
+              "alias": false
+            },
+            {
+              "name": "pdfgist-0.1.1-macos-x64.dmg",
+              "count": 1,
+              "alias": false
+            },
+            {
+              "name": "pdfgist-0.1.1-macos-x64.zip",
+              "count": 0,
+              "alias": false
+            },
+            {
+              "name": "pdfgist-macos-arm64.dmg",
+              "count": 0,
+              "alias": true
+            },
+            {
+              "name": "pdfgist-macos-x64.dmg",
+              "count": 0,
+              "alias": true
+            }
+          ]
+        },
+        {
+          "tag": "v0.1.0",
+          "published": "2026-10-10T04:39:17Z",
+          "prerelease": false,
+          "downloads": 7,
+          "assets": [
+            {
+              "name": "pdfgist-0.1.0-macos-arm64.dmg",
+              "count": 3,
+              "alias": false
+            },
+            {
+              "name": "pdfgist-0.1.0-macos-arm64.zip",
+              "count": 2,
+              "alias": false
+            },
+            {
+              "name": "pdfgist-0.1.0-macos-x64.dmg",
+              "count": 2,
+              "alias": false
+            },
+            {
+              "name": "pdfgist-0.1.0-macos-x64.zip",
+              "count": 0,
+              "alias": false
+            }
+          ]
+        }
+      ]
     }
   }
 }
