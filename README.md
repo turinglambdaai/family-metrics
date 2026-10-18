@@ -9,7 +9,9 @@ product family, plus a zero-dependency dashboard for reading them.
   `data/`. Assets whose name carries no version (the stable per-platform
   aliases that get clobbered on every release) are flagged `alias` so the
   dashboard can separate cumulative update-channel traffic from
-  per-release installs.
+  per-release installs. A repo whose API call fails mid-run is skipped
+  and listed under `skipped` in that day's snapshot instead of aborting
+  the whole run — repo renames are followed transparently.
 - `data/` grows one file per UTC day; `data/index.json` lists them.
 - The dashboard renders straight from those files — no build step, no
   external service.
