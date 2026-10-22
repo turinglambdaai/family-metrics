@@ -1,5 +1,7 @@
 # family-metrics
 
+**English** · [中文](README.zh-CN.md)
+
 Daily snapshots of release download counts across the turinglambdaai
 product family, plus a zero-dependency dashboard for reading them.
 
