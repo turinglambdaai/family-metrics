@@ -56,7 +56,7 @@ pitboard 是 GitHub Pages 静态站（pages.yml + CNAME），无服务端日志�
 
 ## 4. 批量接入计划（决策点 D）
 
-范围：主站（turinglambdaai.github.io）+ pitboard + 产品站 ~10 个仓库（合计 81 个 HTML）。
+范围：主站（turlamai.github.io）+ pitboard + 产品站 ~10 个仓库（合计 81 个 HTML）。
 
 - **对「零依赖」规范的影响**：产品主页规范要求零外部依赖，其立法本意是**不阻塞首屏渲染**（Google Fonts 案）。统计信标以 `async` 加载、不阻塞渲染、不参与布局，不违反本意；建议在产品主页规范中补一条明文：*允许 async 无阻塞统计信标，禁止渲染阻塞型外部资源*。
 - **滚动节奏**：Phase 1 = 主站 + pitboard（2 处，先跑通面板与口径）→ Phase 2 = 产品站逐仓库 PR（每仓库 1 个 commit，顺手验证暗色/双语页面不受影响）。
