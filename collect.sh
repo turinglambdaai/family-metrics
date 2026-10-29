@@ -10,7 +10,7 @@
 # the name listed here until the list is updated.
 set -euo pipefail
 
-ORG=turinglambdaai
+ORG=turlamai
 REPOS="fulcrum taskly payback threadly movebit syncpilot booklight podlens autarx keyward regexmate keepsake gptp-studio flashpilot moonbeam hackdigest pitboard yinwang-archive"
 
 date=$(date -u +%F)

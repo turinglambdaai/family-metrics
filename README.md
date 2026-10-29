@@ -2,7 +2,7 @@
 
 **English** · [中文](README.zh-CN.md)
 
-Daily snapshots of release download counts across the turinglambdaai
+Daily snapshots of release download counts across the TurLamAI
 product family, plus a zero-dependency dashboard for reading them.
 
 - `collect.sh` walks every product repo's releases API once a day
